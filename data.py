@@ -25,9 +25,8 @@ name_with_spaces = " A Aaa "
 
 name_numbers = "123"
 
-kit_body_no_name = {
-    "cardId": 1
-}
+kit_body_no_name = {}
+
 kit_body_number_name = {
     "cardId": 1,
     "name": 123
