@@ -1,75 +1,38 @@
 # Proyecto Urban Grocers 
-El presente proyecto integra las funciones y pruebas necesarias para ejecutar la lista de comprobación dirigida específicamente al campo 'name' en la creación de kits, de la aplicación Urban.Grocers;
-el objetivo es probar los rangos y clases de equivalencia. 
+El presente proyecto integra las funciones y pruebas necesarias para ejecutar la lista de comprobación dirigida específicamente al campo 'name' en la creación de kits, de la aplicación Urban.Grocers; el objetivo es probar los rangos y clases de equivalencia ejecutando esta suite automatizada. 
+Urban.Grocers es una plataforma de delivery de insumos bajo demanda.
 
-## Estructura del Proyecto
+## **Técnicas y tecnologías empleadas:**
+#### - **GitBash:** Para clonar la plantilla del repositorio a mi pc.
+#### - **Python:** Lenguaje utilizado para la redacción del código.
+#### - **PyCharm:** Desarrollo del código.
+#### - **PyTest:** Gestión y automatización de pruebas de software.
 
-- **configuration.py:** Contiene las URLs y rutas de solicitud
-- **data.py:** Almacena los cuerpos de las solicitudes POST
-- **sender_stand_request.py:** Funciones para enviar las solicitudes HTTP
-- **create_kit_name_kit_test.py:** Archivo principal con todas las pruebas
-- **README.md:** Documentación del proyecto
-- **.gitignore:** Especifica qué archivos ignorar en el control de versiones
+## 🚀 Instrucciones de Ejecución
 
-## Configuración del Proyecto
-### 1. Configurar configuration.py
-python
-URL_SERVICE = "https://tu-servidor-urban-grocers.com"
-CREATE_USER_PATH = "/api/v1/users/"
-KITS_PATH = "/api/v1/kits/"
+Para clonar y ejecutar estas pruebas en tu entorno local, sigue estos pasos:
 
-### 2. Configurar data.py
-```python
-user_body = {
-    "firstName": "Andrea", 
-    "phone": "+11234567890",
-    "address": "123 Elm Street, 14"
-}
-
-kit_body = {
-    "name": "Mi kit"
-}
+### 1. Requisitos Previos
+```bash
+- Python 3.x instalado.
+- PyCharm (o tu IDE preferido).
 ```
-
-### 3. Configurar sender_stand_request.py
-```python
-import configuration
-import requests
-import data
-
-# Funciones para enviar solicitudes HTTP
-def post_new_user(body):
-    return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH, json=body)
-
-# Ejemplo de función completa
-def post_new_kit(kit_body, auth_token):
-    headers = {"Authorization": f"Bearer {auth_token}"}
-    return requests.post(configuration.URL_SERVICE + configuration.KITS_PATH, 
-                        json=kit_body, headers=headers)
-```
-
-### 4. Instalar dependencias
-
+### 2. Instalación de Dependencias
+Abre la terminal en la raíz del proyecto y ejecuta:
+```bash
 pip install requests pytest
-
-### 5. Ejecución de Pruebas
-pytest create_kit_name_kit_test.py -v
-
-### 6. Estructura de imports en create_kit_name_kit_test.py
-``` python
-import data
-import sender_stand_request
-from data import get_kit_body, name_1_char, name_with_spaces, name_numbers, name_0_chars, \ 
-    name_512_chars, kit_body_no_name, name_511_chars, name_special_chars, kit_body_number_name
 ```
-
+### 3. Configuración del Servidor / URL Base
+Asegúrate de actualizar la variable URL_SERVICE en el archivo configuration.py con la URL activa del servidor de pruebas:
+```bash
+URL_SERVICE = "[https://tu-servidor-de-pruebas.serverhub.tripleten-services.com](https://tu-servidor-de-pruebas.serverhub.tripleten-services.com)"
+```
+### 4. Ejecución de las Pruebas
+```bash
+pytest create_kit_name_kit_test.py
+```
 ## Fuente
 https://cnt-f4311f80-4bff-4258-a320-703bcbbf4b72.containerhub.tripleten-services.com/docs/
 
-## Tecnologías y Técnicas utilizadas
-
-- **Python:** Lenguaje de programación utilizado
-- **Pytest:** Framework para ejecutar las pruebas  
-- **requests:** Biblioteca para hacer peticiones HTTP
 - **Pruebas de API:** Técnica utilizada para validar endpoints
 - **Métodos HTTP:** GET, POST, PUT, DELETE
