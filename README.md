@@ -33,6 +33,3 @@ pytest create_kit_name_kit_test.py
 ```
 ## Fuente
 https://cnt-f4311f80-4bff-4258-a320-703bcbbf4b72.containerhub.tripleten-services.com/docs/
-
-- **Pruebas de API:** Técnica utilizada para validar endpoints
-- **Métodos HTTP:** GET, POST, PUT, DELETE
